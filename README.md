@@ -20,7 +20,7 @@ In order to run This code ..
  
  
  unzip the Linux Library 
- 
+``` 
  -------------
  EPOS_Linux_Library
  |
@@ -31,6 +31,7 @@ In order to run This code ..
  |---misc
  |---EULA.txt
  |---install.sh
+ ```
  
  ```
  
