@@ -32,9 +32,9 @@ In order to run This code ..
  |---EULA.txt
  |---install.sh
  
-cd ~/EPOS_Linux_Library
-chmod +x install.sh
-./install.sh
+$ cd ~/EPOS_Linux_Library
+$ chmod +x install.sh
+$ ./install.sh
 
 
 
