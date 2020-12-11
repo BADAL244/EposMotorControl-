@@ -36,4 +36,6 @@ cd ~/EPOS_Linux_Library
 chmod +x install.sh
 ./install.sh
 
+
+
 this Process will help to run Maxon Linux Library to allow their API to use in development environment in Nvidia Arm devices like (nano , jetson TX1/TX2 , xavier )
