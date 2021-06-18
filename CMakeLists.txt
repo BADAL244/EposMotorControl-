@@ -12,6 +12,10 @@ find_package(catkin REQUIRED COMPONENTS
   rospy
   std_msgs
   message_generation
+  tf
+  geometry_msgs
+  nav_msgs
+
 )
 
 ## System dependencies are found with CMake's conventions
@@ -142,12 +146,17 @@ message(${catkin_INCLUDE_DIRS})
 add_executable(position_server src/position_server.cpp src/wrap.cpp)
 add_executable(velocity_server src/velocity_server.cpp src/wrap.cpp)
 add_executable(velocity_server2 src/velocity_server2.cpp src/wrap.cpp)
+add_executable(velocity_server3 src/velocity_new_move.cpp src/wrap.cpp)
 add_executable(current_server src/current_server.cpp src/wrap.cpp)
+#add_executable(new_run src/newrun.cpp src/wrap.cpp)
+add_executable(new_sec src/newsec.cpp src/wrap.cpp)
+add_executable(pathnew src/pathraw.cpp)
 
 add_executable(test_epos2 src/test_epos2.cpp src/wrap.cpp)
 add_executable(test_math src/test_math.cpp)
 add_executable(time_test src/time_test.cpp)
-
+add_executable(count src/countpub.cpp)
+add_executable(joy_node1 src/joy_input.cpp)
 ## Rename C++ executable without prefix
 ## The above recommended prefix causes long target names, the following renames the
 ## target back to the shorter version for ease of user use
@@ -160,9 +169,11 @@ add_executable(time_test src/time_test.cpp)
 add_dependencies(position_server epos2_gencpp)
 add_dependencies(velocity_server epos2_gencpp)
 add_dependencies(velocity_server2 epos2_gencpp)
+add_dependencies(velocity_server3 epos2_gencpp)
 add_dependencies(current_server epos2_gencpp)
 add_dependencies(test_epos2 epos2_gencpp)
-
+#add_dependencies(new_run epos2_gencpp)
+add_dependencies(new_sec epos2_gencpp)
 ## Specify libraries to link a library or executable target against
 
 target_link_libraries(position_server
@@ -177,6 +188,10 @@ target_link_libraries(velocity_server2
   ${catkin_LIBRARIES}
   EposCmd
 )
+target_link_libraries(velocity_server3
+  ${catkin_LIBRARIES}
+  EposCmd
+)
 target_link_libraries(current_server
   ${catkin_LIBRARIES}
   EposCmd
@@ -185,10 +200,27 @@ target_link_libraries(test_epos2
   ${catkin_LIBRARIES}
   EposCmd
 )
+# target_link_libraries(new_run
+#   ${catkin_LIBRARIES}
+#   EposCmd
+# )
+target_link_libraries(new_sec
+  ${catkin_LIBRARIES}
+  EposCmd
+)
 target_link_libraries(time_test
   ${catkin_LIBRARIES}
 )
 target_link_libraries(test_math
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(count
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(pathnew
+  ${catkin_LIBRARIES}
+)
+target_link_libraries(joy_node1
   ${catkin_LIBRARIES}
 )
 #############
@@ -238,4 +270,3 @@ target_link_libraries(test_math
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
-
