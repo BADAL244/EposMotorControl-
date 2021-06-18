@@ -1,0 +1,20 @@
+<launch>
+  
+    <node pkg="epos2" type="joy_node1" name="joy_node1" output="screen">
+    <!--input axis -->
+       <param name="axis_linear" value="1" type="int"/>
+       <param name="axis_angular" value="0" type="int"/>
+       <!--input vel -->
+       <param name="vel_linear" value="0.5" type="double"/>
+       <param name="vel_angular" value="0.5" type="double"/>
+        <!-- <remap from="/turtle1/cmd_vel" to="/yocs_cmd_vel_mux/input/joystick" /> -->
+ </node>
+    <node respawn="true" pkg="joy" type="joy_node" name="joystick" >  
+
+    
+
+
+    </node>
+    
+</launch>
+
