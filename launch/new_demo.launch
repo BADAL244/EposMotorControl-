@@ -1,0 +1,3 @@
+<launch>
+	<node pkg="epos2" type="velocity_server3" name="velocity_server3" output="screen"/>
+</launch>
